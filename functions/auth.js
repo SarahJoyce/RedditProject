@@ -1,4 +1,4 @@
-/* // signup
+// signup
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -24,4 +24,4 @@ logout.addEventListener('click', (e) => {
 	auth.signOut().then(() => {
 		console.log('user signed out');
 	})
-}); */
+});
