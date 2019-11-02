@@ -10,35 +10,80 @@
 </head>
 
 <body>
-
 	<nav>
 		<div>
 			<ul>
 				<li class="logged-in">
-					<a href="#">Account</a>
+					<a href="#" data-target="modal-account">Account</a>
 				</li>
 				<li class="logged-in">
 					<a href="#" id="logout">Logout</a>
 				</li>
-				<li class="logged-out">
-					<a href="#">Login</a>
+				<li class="logged-in">
+					<a href="#" data-target="modal-create">Login</a>
 				</li>
 				<li class="logged-out">
-					<a href="#">Sign Up</a>
+					<a href="#" data-target="modal-signup">Sign Up</a>
 				</li>
 		</div>
 	</nav>
-	
 
-	<!-- Previously loaded Firebase SDKs -->
-	<script src="/__/firebase/7.2.2/firebase-app.js"></script>
-	<script src="/__/firebase/7.2.2/firebase-analytics.js"></script>
+	<!-- SIGN UP MODAL -->
+	<div id="modal-signup" class="modal">
+		<div class="modal-content">
+			<h4>Sign up</h4><br />
+			<form id="signup-form">
+				<div class="input-field">
+					<input type="email" id="signup-email" required />
+					<label for="signup-email">Email address</label>
+				</div>
+				<div class="input-field">
+					<input type="password" id="signup-password" required />
+					<label for="signup-password">Choose password</label>
+				</div>
+				<button>Sign up</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- LOGIN MODAL -->
+	<div id="modal-login" class="modal">
+		<div class="modal-content">
+			<h4>Login</h4><br />
+			<form id="login-form">
+				<div class="input-field">
+					<input type="email" id="login-email" required />
+					<label for="login-email">Email address</label>
+				</div>
+				<div class="input-field">
+					<input type="password" id="login-password" required />
+					<label for="login-password">Your password</label>
+				</div>
+				<button>Login</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- ACCOUNT MODAL -->
+	<div id="modal-account" class="modal">
+		<div class="modal-content center-align">
+			<h4>Account details</h4><br />
+			<div class="account-details"></div>
+			<div class="account-extras"></div>
+		</div>
+	</div>
+
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
 	<script src="/__/firebase/7.2.2/firebase-auth.js"></script>
 	<script src="/__/firebase/7.2.2/firebase-firestore.js"></script>
 	<!-- Initialize Firebase -->
 	<script src="/__/firebase/init.js"></script>
 
-	</script>
+	<script src="/functions/index.js"></script>
+	<script src="/functions/auth.js"></script>
 </body>
 
 </html>
