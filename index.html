@@ -83,6 +83,25 @@
 	<script src="/__/firebase/init.js"></script>
 	<script src="/functions/auth.js"></script>
 	<script src="/functions/index.js"></script>
+	<script>
+		var firebaseConfig = {
+		apiKey: "AIzaSyDUzNRAHGQsPRRFkPL3P0rdpplGuPbRA5M",
+		authDomain: "diyreddit-7f814.firebaseapp.com",
+		databaseURL: "https://diyreddit-7f814.firebaseio.com",
+		projectId: "diyreddit-7f814",
+		storageBucket: "diyreddit-7f814.appspot.com",
+		messagingSenderId: "401162339207",
+		appId: "1:401162339207:web:a785264f490353e9b34922",
+		measurementId: "G-ESK47Z7DWY"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+		const functions = firebase.functions();
+	</script>
 	
 </body>
 
