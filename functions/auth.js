@@ -1,7 +1,7 @@
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
 	if (user) {
-		db.collection('guides').get().then(snapshot => {
+		return db.collection('guides').get().then(snapshot => {
 			setupGuides(snapshot.docs);
 			setupUI(user);
 		});
@@ -46,7 +46,7 @@ loginForm.addEventListener('submit', (e) => {
 	const password = loginForm['login-password'].value;
 
 	// log the user in
-	auth.signInWithEmailAndPassword(email, password).then(() => {
+	return auth.signInWithEmailAndPassword(email, password).then(() => {
 		// close the signup modal & reset form
 		const modal = document.querySelector('#modal-login');
 		M.Modal.getInstance(modal).close();
