@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-// listen for auth status changes
-auth.onAuthStateChanged(user => {
-	if (user) {
-		return db.collection('guides').get().then(snapshot => {
-			setupGuides(snapshot.docs);
-			setupUI(user);
-		});
-	} else {
-		setupUI();
-		setupGuides([]);
-	}
-});
-
-// signup
-const signupForm = document.querySelector('#signup-form');
-signupForm.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	// get user info
-	const email = signupForm['signup-email'].value;
-	const password = signupForm['signup-password'].value;
-
-	// sign up the user
-	auth.createUserWithEmailAndPassword(email, password).then(() => {
-		// close the signup modal & reset form
-		const modal = document.querySelector('#modal-signup');
-		M.Modal.getInstance(modal).close();
-		signupForm.reset();
-	});
-});
-
-=======
->>>>>>> 1fa87c970dcb4b3aa485d5503c1b617afd213c13
 // logout
 function logout () {
   auth.signOut();
@@ -39,25 +5,6 @@ function logout () {
 };
 
 // login
-<<<<<<< HEAD
-const loginForm = document.querySelector('#login-form');
-loginForm.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	// get user info
-	const email = loginForm['login-email'].value;
-	const password = loginForm['login-password'].value;
-
-	// log the user in
-	return auth.signInWithEmailAndPassword(email, password).then(() => {
-		// close the signup modal & reset form
-		const modal = document.querySelector('#modal-login');
-		M.Modal.getInstance(modal).close();
-		loginForm.reset();
-	});
-
-});
-=======
 function login(){
   var provider = new firebase.auth.GoogleAuthProvider();
   
@@ -77,4 +24,3 @@ function login(){
     var credential = error.credential;
   });
 }
->>>>>>> 1fa87c970dcb4b3aa485d5503c1b617afd213c13
