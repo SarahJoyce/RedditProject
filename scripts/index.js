@@ -42,8 +42,17 @@ const setupPosts = (data) => {
     });
     postList.innerHTML = html
   }
-
 };
+
+function createPost() {
+  let user = firebase.auth().currentUser.uid;
+  firebase.database().ref('createBoard/' + queries[1] + '/posts/'  + user + '/' + Date.now()).set({
+      description: document.getElementById("description").value,
+      name: name,
+      posterId: firebase.auth().currentUser.uid,
+      photoUrl: photoUrl
+  });
+}
 
 $(document).ready(function(){
   auth.onAuthStateChanged(user => {
