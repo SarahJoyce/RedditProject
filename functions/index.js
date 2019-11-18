@@ -1,5 +1,5 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
-const functions = require('firebase-functions');
+//const functions = require('firebase-functions');
 // var provider = new firebase.auth.GithubAuthProvider();
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 // const admin = require('firebase-admin');
@@ -8,10 +8,15 @@ const functions = require('firebase-functions');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 // setup materialize components
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
 	var modals = document.querySelectorAll('.modal');
 	M.Modal.init(modals);
   
 	var items = document.querySelectorAll('.collapsible');
 	M.Collapsible.init(items);
+<<<<<<< HEAD
 });
+=======
+  
+});*/
+>>>>>>> f487261c40eca348636186ff5058d06fce02611b
