@@ -14,9 +14,5 @@
   
 	var items = document.querySelectorAll('.collapsible');
 	M.Collapsible.init(items);
-<<<<<<< HEAD
-});
-=======
   
 });*/
->>>>>>> f487261c40eca348636186ff5058d06fce02611b
