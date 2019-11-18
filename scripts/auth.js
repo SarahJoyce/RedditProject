@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
 	if (user) {
@@ -29,14 +30,16 @@ signupForm.addEventListener('submit', (e) => {
 	});
 });
 
+=======
+>>>>>>> 1fa87c970dcb4b3aa485d5503c1b617afd213c13
 // logout
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-	e.preventDefault();
-	auth.signOut();
-});
+function logout () {
+  auth.signOut();
+  document.getElementById("logged-out");
+};
 
 // login
+<<<<<<< HEAD
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -54,3 +57,24 @@ loginForm.addEventListener('submit', (e) => {
 	});
 
 });
+=======
+function login(){
+  var provider = new firebase.auth.GoogleAuthProvider();
+  
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    document.getElementById("logged-in");
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+  });
+}
+>>>>>>> 1fa87c970dcb4b3aa485d5503c1b617afd213c13
