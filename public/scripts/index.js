@@ -11,6 +11,19 @@ function createBoard() {
   });
 }
 
+function createPost() {
+  var myRef = firebase.database().ref().push();
+  var key = myRef.key;
+    var newData={
+        id: key,
+        content: document.getElementById("content").value,
+        name: document.getElementById("title").value,
+        upvotes: 0,
+        downvotes: 0,
+    }
+    myRef.push(newData);
+}
+
 const setupUI = (user) => {
   var boards = db.collection('boards/');
   if (user) {
@@ -43,16 +56,6 @@ const setupPosts = (data) => {
     postList.innerHTML = html
   }
 };
-
-function createPost() {
-  let user = firebase.auth().currentUser.uid;
-  firebase.database().ref('createBoard/' + queries[1] + '/posts/'  + user + '/' + Date.now()).set({
-      description: document.getElementById("description").value,
-      name: name,
-      posterId: firebase.auth().currentUser.uid,
-      photoUrl: photoUrl
-  });
-}
 
 $(document).ready(function(){
   auth.onAuthStateChanged(user => {
