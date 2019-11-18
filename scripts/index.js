@@ -3,15 +3,19 @@ const postList = document.querySelector('.posts');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 
+function createBoard() {
+  var boardName = document.getElementById('name').value;
+  var descr = document.getElementById('description').value;
+  firebase.database().ref('boards/' + name).set({
+    name: boardName, description: descr
+  });
+}
+
 const setupUI = (user) => {
+  var boards = db.collection('boards/');
   if (user) {
-    // account info
-    db.collection('users').doc(user.uid).get().then(doc => {
-      const html = `
-        <div>Logged in as ${user.email}</div>
-      `;
-    });
     // toggle user UI elements
+
     loggedInLinks.forEach(item => item.style.display = 'block');
     loggedOutLinks.forEach(item => item.style.display = 'none');
   } else {
@@ -23,7 +27,7 @@ const setupUI = (user) => {
 
 // setup posts
 const setupPosts = (data) => {
-
+  var posts = db.collection('boards/');
   if (data.length) {
     let html = '';
     data.forEach(doc => {
@@ -40,3 +44,17 @@ const setupPosts = (data) => {
   }
 
 };
+
+$(document).ready(function(){
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      db.collection('posts').get().then(snapshot => {
+        setupPosts(snapshot.docs);
+        setupUI(user);
+      });
+    } else {
+      setupUI();
+      setupPosts([]);
+    }
+  });
+  });

@@ -1,17 +1,3 @@
-$(document).ready(function(){
-auth.onAuthStateChanged(user => {
-	if (user) {
-		db.collection('posts').get().then(snapshot => {
-			setupPosts(snapshot.docs);
-			setupUI(user);
-		});
-	} else {
-		setupUI();
-		setupPosts([]);
-	}
-});
-});
-
 // logout
 function logout () {
   auth.signOut();
