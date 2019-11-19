@@ -1,9 +1,9 @@
-var user = firebase.auth().currentUser;
 var name, email, photoUrl, uid, emailVerified;
 
 // logout
 function logout() {
 	firebase.auth().signOut().then(function () {
+	console.log("You have logged out successfully");
 		// Sign-out successful.
 	}).catch(function (error) {
 		// An error happened.
