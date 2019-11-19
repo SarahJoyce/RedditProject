@@ -1,7 +1,11 @@
 // logout
 function logout() {
-	auth.signOut()
-	document.getElementById("logged-out");
+	firebase.auth().signOut().then(function() {
+		document.getElementById("logged-out");
+		// Sign-out successful.
+	  }).catch(function(error) {
+		// An error happened.
+	  });
 };
 
 var email;
