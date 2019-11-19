@@ -11,6 +11,19 @@ function createBoard() {
 	});
 }
 
+function createPost() {
+  var myRef = firebase.database().ref().push();
+  var key = myRef.key;
+    var newData={
+        id: key,
+        content: document.getElementById("content").value,
+        name: document.getElementById("title").value,
+        upvotes: 0,
+        downvotes: 0,
+    }
+    myRef.push(newData);
+}
+
 const setupUI = (user) => {
 	var boards = db.collection('boards/');
 	if (user) {
@@ -38,11 +51,10 @@ const setupPosts = (data) => {
           <div class="collapsible-body white"> ${post.content} </div>
         </li>
       `;
-			html += li;
-		});
-		postList.innerHTML = html
-	}
-
+      html += li;
+    });
+    postList.innerHTML = html
+  }
 };
 
 $(document).ready(function () {
