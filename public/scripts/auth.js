@@ -10,7 +10,6 @@ function logout() {
 	});
 };
 
-var email;
 // login
 function login() {
 	var provider = new firebase.auth.GoogleAuthProvider();

@@ -20,26 +20,26 @@
 	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 	<!-- Initialize Firebase -->
 	<script>
-	var firebaseConfig = {
-  apiKey: "AIzaSyDUzNRAHGQsPRRFkPL3P0rdpplGuPbRA5M",
-  authDomain: "diyreddit-7f814.firebaseapp.com",
-  databaseURL: "https://diyreddit-7f814.firebaseio.com",
-  projectId: "diyreddit-7f814",
-  storageBucket: "diyreddit-7f814.appspot.com",
-  messagingSenderId: "401162339207",
-  appId: "1:401162339207:web:a785264f490353e9b34922",
-  measurementId: "G-ESK47Z7DWY"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+		var firebaseConfig = {
+			apiKey: "AIzaSyDUzNRAHGQsPRRFkPL3P0rdpplGuPbRA5M",
+			authDomain: "diyreddit-7f814.firebaseapp.com",
+			databaseURL: "https://diyreddit-7f814.firebaseio.com",
+			projectId: "diyreddit-7f814",
+			storageBucket: "diyreddit-7f814.appspot.com",
+			messagingSenderId: "401162339207",
+			appId: "1:401162339207:web:a785264f490353e9b34922",
+			measurementId: "G-ESK47Z7DWY"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
 
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  const firestore = firebase.firestore();
-  const settings = {/* your settings... */ timestampsInSnapshots: true};
-    firestore.settings(settings);
-  const functions = firebase.functions();
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+		const firestore = firebase.firestore();
+		const settings = {/* your settings... */ timestampsInSnapshots: true };
+		firestore.settings(settings);
+		const functions = firebase.functions();
 	</script>
 </head>
 
@@ -54,7 +54,7 @@
 					<a href="#" id="logout" onclick="logout()">Logout</a>
 				</li>
 				<li class="logged-in">
-					<a href="#" id = "login" data-target="modal-create" onclick="login()">Login</a>
+					<a href="#" id="login" data-target="modal-create" onclick="login()">Login</a>
 				</li>
 				<li class="logged-out">
 					<a href="#" data-target="modal-signup">Sign Up</a>
@@ -65,25 +65,25 @@
 	<!-- CREATE POST MODAL -->
 	<div id="modal-create" class="modal">
 		<div class="modal-content">
-		  <h4>Create Post</h4><br />
-		  <form id="create-form">
-			<div class="input-field">
-			  <input type="text" id="title" required>
-			  <label for="title">Post Title</label>
-			</div>
-			<div class="input-field">
-			  <textarea id="content" class="materialize-textarea" required></textarea>
-			  <label for="content">Post Content</label>
-			</div>
-			<button class="btn yellow darken-2 z-depth-0" onclick="createPost()">Create</button>
-		  </form>
+			<h4>Create Post</h4><br />
+			<form id="create-form">
+				<div class="input-field">
+					<input type="text" id="title" required>
+					<label for="title">Post Title</label>
+				</div>
+				<div class="input-field">
+					<textarea id="content" class="materialize-textarea" required></textarea>
+					<label for="content">Post Content</label>
+				</div>
+				<button class="btn yellow darken-2 z-depth-0" onclick="createPost()">Create</button>
+			</form>
 		</div>
-	  </div>
-	  <!-- POST FEED -->
-	  <div class="container" style="margin-top: 40px;">
+	</div>
+	<!-- POST FEED -->
+	<div class="container" style="margin-top: 40px;">
 		<ul class="collapsible z-depth-0 guides" style="border: none;">
 		</ul>
-	  </div>
+	</div>
 </body>
 
 </html>
