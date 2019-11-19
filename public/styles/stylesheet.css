@@ -1,3 +1,7 @@
+.hidden{
+  display: none;
+}
+
 nav {
   padding: 50px;
   text-align: center;

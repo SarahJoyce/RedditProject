@@ -40,7 +40,7 @@ const setupUI = (user) => {
 
 // setup posts
 const setupPosts = (data) => {
-	var posts = db.collection('boards/');
+	var posts = db.collection('posts');
 	if (data.length) {
 		let html = '';
 		data.forEach(doc => {

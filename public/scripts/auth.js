@@ -1,10 +1,11 @@
-var user = firebase.auth().currentUser;
-var name, email, photoUrl, uid, emailVerified;
+//var user = firebase.auth().currentUser;
+//var name, email, photoUrl, uid, emailVerified;
 
 // logout
 function logout() {
 	firebase.auth().signOut().then(function () {
 		// Sign-out successful.
+		stateChanged();
 	}).catch(function (error) {
 		// An error happened.
 	});
@@ -27,6 +28,7 @@ function login() {
 			uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
 			// this value to authenticate with your backend server, if
 			// you have one. Use User.getToken() instead.
+			stateChanged();
 		}
 	}).catch(function (error) {
 		// Handle Errors here.
@@ -37,4 +39,23 @@ function login() {
 		// The firebase.auth.AuthCredential type that was used.
 		var credential = error.credential;
 	});
+};
+
+function stateChanged() {
+	firebase.auth().onAuthStateChanged(function (user){
+	if (user) {
+		// User is logged in.
+		name = user.displayName;
+		email = user.email;
+		photoUrl = user.photoURL;
+		emailVerified = user.emailVerified;
+		uid = user.uid;
+		$(".logged-out").addClass("hidden");
+		$(".logged-in").removeClass("hidden");
+	} else {
+		// User is logged out.
+		$(".logged-in").addClass("hidden");
+		$(".logged-out").removeClass("hidden");
+	}
+});
 };
