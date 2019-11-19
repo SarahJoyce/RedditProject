@@ -14,10 +14,6 @@ function login(){
     var token = result.credential.accessToken;
     // The signed-in user info.
 	var user = result.user;
-	if (user != null){
-		email = user.email;
-		loggedIn();
-	}
 
   }).catch(function(error) {
     // Handle Errors here.
