@@ -5,6 +5,7 @@
 function logout() {
 	firebase.auth().signOut().then(function () {
 		// Sign-out successful.
+		console.log("You have logged out");
 		stateChanged();
 	}).catch(function (error) {
 		// An error happened.
@@ -19,7 +20,7 @@ function login() {
 		var token = result.credential.accessToken;
 		// The signed-in user info.
 		var user = result.user;
-		console.log("you're in the log in function");
+		console.log("You have logged in");
 		if (user != null) {
 			name = user.displayName;
 			email = user.email;
