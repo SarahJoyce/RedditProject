@@ -18,7 +18,7 @@ function login() {
 		var token = result.credential.accessToken;
 		// The signed-in user info.
 		var user = result.user;
-
+		console.log("you're in the log in function");
 		if (user != null) {
 			name = user.displayName;
 			email = user.email;
@@ -37,6 +37,4 @@ function login() {
 		// The firebase.auth.AuthCredential type that was used.
 		var credential = error.credential;
 	});
-}
-
-
+};
